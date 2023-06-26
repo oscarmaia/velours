@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from "vue-router";
       <div>Velours</div>
       <div class="flex gap-4">
         <RouterLink id="client" to="/">Client</RouterLink>
-        <RouterLink id="admin" to="/inventory">Admin</RouterLink>
+        <RouterLink id="admin" to="/admin">Admin</RouterLink>
       </div>
       <div>Profile</div>
     </nav>
