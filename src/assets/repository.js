@@ -1,3 +1,15 @@
+function addItem(params) {
+  return arr.push(params);
+}
+function updateItem(id, data) {
+  return (arr[id] = data);
+}
+function getItens() {
+  return arr;
+}
+
+export { addItem, getItens, updateItem };
+
 const arr = [
   {
     name: "Camisa 1",
@@ -141,5 +153,3 @@ const arr = [
     image: "https://example.com/image10.jpg",
   },
 ];
-
-export default arr;
