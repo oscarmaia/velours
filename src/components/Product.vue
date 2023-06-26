@@ -3,7 +3,9 @@
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
     class="h-80 w-60 p-4 shadow-md hover:shadow-xl hover:cursor-pointer rounded-lg"
-    v-on:click="editItem"
+    @click="
+      $emit('event-from-item', {name, price, quantity, image, discount, id, admin})
+    "
   >
     <div class="h-52 flex justify-center items-start">
       <img class="rounded-md h-full object-cover" :src="image" />
@@ -30,8 +32,9 @@
           "
           >R${{ price.toFixed(2) }}</span
         >
-        <div v-if="admin === true" v-on:click="editItem">
+        <div v-if="admin === true">
           <svg
+            @click="sendSignal"
             width="24px"
             height="24px"
             viewBox="0 0 24 24"
@@ -70,7 +73,6 @@ export default {
   methods: {
     editItem() {
       if (this.admin === true) {
-        console.log(this.name);
       } else {
         return;
       }
