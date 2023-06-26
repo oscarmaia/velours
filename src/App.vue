@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <header>
+  <header class="relative z-10">
     <nav
       id="nav"
       class="container py-2 mx-2 md:mx-auto self-center mb-10 h-10 flex justify-between"
