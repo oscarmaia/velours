@@ -22,6 +22,6 @@ export default {
     />
   </div>
   <div class="container mx-auto">
-    <ProductList></ProductList>
+    <ProductList class="my-4"></ProductList>
   </div>
 </template>
