@@ -28,7 +28,7 @@
         "
       >
         R${{
-          (price * discount > 0 ? price + discount / 100 : price * 1).toFixed(2)
+          (price/100 * discount > 0 ? price/100 + price/100*discount/100 : price/100 * 1).toFixed(2)
         }}
       </span>
       <div class="flex items-end justify-between">
@@ -38,7 +38,7 @@
               ? ['text-lg', 'text-green-500']
               : ['text-lg', 'text-black-500']
           "
-          >R${{ price.toFixed(2) }}</span
+          >R${{ (price/100).toFixed(2) }}</span
         >
         <div v-if="admin === true">
           <svg
