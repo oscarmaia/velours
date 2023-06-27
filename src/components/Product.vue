@@ -4,7 +4,15 @@
     @mouseleave="isHovered = false"
     class="h-80 w-60 p-4 shadow-md hover:shadow-xl hover:cursor-pointer rounded-lg"
     @click="
-      $emit('event-from-item', {name, price, quantity, image, discount, id, admin})
+      $emit('event-from-item', {
+        name,
+        price,
+        quantity,
+        image,
+        discount,
+        id,
+        admin,
+      })
     "
   >
     <div class="h-52 flex justify-center items-start">

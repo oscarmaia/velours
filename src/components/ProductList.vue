@@ -19,7 +19,7 @@
 
 <script>
 import Product from "./Product.vue";
-import { getItens } from "../assets/repository";
+import axios from "axios";
 export default {
   props: {
     admin: Boolean,
@@ -38,7 +38,14 @@ export default {
   },
   methods: {
     fetchData() {
-      this.arr = getItens();
+      axios
+        .get("https://velours-api.onrender.com/products")
+        .then((res) => {
+          this.arr = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     sendDirectlyToAdmin(data) {
       this.$emit("send-to-admin", data);

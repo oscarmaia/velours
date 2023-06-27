@@ -79,6 +79,13 @@
               CONFIRMAR
             </button>
             <button
+              type="submit"
+              v-on:click="deleteItem"
+              class="bg-red-800 rounded-md p-1 text-white font-bold"
+            >
+              DELETAR PRODUTO
+            </button>
+            <button
               type="button"
               v-on:click="closeOverlay"
               class="bg-red-400 rounded-md p-1 text-white font-bold"
@@ -98,12 +105,12 @@
     @send-to-admin="handleInfoFromChild"
     class="my-4"
     :admin="admin"
-    :updateProductList="!updateProductList"
+    :updateProductList="updateProductList"
   ></ProductList>
 </template>
 
 <script>
-import { getItens, updateItem } from "../assets/repository";
+import axios from "axios";
 import ProductList from "../components/ProductList.vue";
 
 export default {
@@ -123,6 +130,22 @@ export default {
     this.fetchData();
   },
   methods: {
+    async deleteItem() {
+      await axios
+        .delete(
+          `https://velours-api.onrender.com/products/${
+            this.itens[this.edit.id]._id
+          }`
+        )
+        .then((res) => {
+          console.log("data deletada com sucesso", res.data);
+          this.closeOverlay();
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     handleInfoFromChild(data) {
       this.edit = data;
       this.productSelected = true;
@@ -130,14 +153,37 @@ export default {
     closeOverlay() {
       this.productSelected = false;
     },
-    submitForm(e) {
+    async submitForm(e) {
       e.preventDefault();
-      updateItem(this.edit.id, this.edit);
-      this.closeOverlay();
-      this.updateProductList = !this.updateProductList;
+      const payload = {
+        ...this.edit,
+      };
+      delete payload.admin;
+      delete payload.id;
+      await axios
+        .put(
+          `https://velours-api.onrender.com/products/${
+            this.itens[this.edit.id]._id
+          }`,
+          payload
+        )
+        .then((res) => {
+          this.closeOverlay();
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
-    fetchData() {
-      this.itens = getItens();
+    async fetchData() {
+      await axios
+        .get("https://velours-api.onrender.com/products")
+        .then((res) => {
+          this.itens = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };

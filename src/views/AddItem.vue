@@ -11,25 +11,23 @@
           ><input
             type="text"
             v-model="newProduct.name"
-            :placeholder="'Item X'"
+            :placeholder="'NOME DO PRODUTO'"
           />
         </div>
         <div class="my-2">
           <span>Preço: </span
           ><input
             type="number"
-            step="any"
             v-model="newProduct.price"
-            :placeholder="'12.47'"
+            :placeholder="'1240=12,40(valor em centavos)'"
           />
         </div>
         <div class="my-2">
           <span>Desconto: </span
           ><input
             type="number"
-            step="any"
             v-model="newProduct.discount"
-            :placeholder="15 + '%'"
+            :placeholder="'valor inteiro 0 - 100'"
           />
         </div>
         <div class="my-2">
@@ -37,7 +35,7 @@
           ><input
             type="number"
             v-model="newProduct.quantity"
-            :placeholder="'17'"
+            :placeholder="'Qtd. em estoque'"
           />
         </div>
         <div class="my-2">
@@ -45,7 +43,7 @@
           ><input
             type="text"
             v-model="newProduct.image"
-            :placeholder="'https://...'"
+            :placeholder="'URI da imagem do produto'"
           />
         </div>
       </div>
@@ -85,7 +83,6 @@ export default {
       this.newProduct;
       console.log(this.newProduct);
       addItem(this.newProduct);
-      this.$router.push("/admin");
     },
   },
 };
