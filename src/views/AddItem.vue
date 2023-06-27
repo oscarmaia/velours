@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto flex flex-col sm:w-4/6 items-between justify-between">
+  <div class="p-4 mx-auto flex flex-col sm:w-4/6 md:w-3/6 lg:w-3/6 2xl:w-2/6 items-between justify-between">
     <div class="flex w-full">
       <h1 class="mx-auto">EDITAR ITEM</h1>
     </div>

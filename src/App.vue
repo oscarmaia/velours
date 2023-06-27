@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from "vue-router";
   <header class="relative z-10">
     <nav
       id="nav"
-      class="container py-2 mx-2 md:mx-auto self-center mb-10 h-10 flex justify-between"
+      class="container p-4 sm:mx-auto self-center mb-10 h-10 flex justify-between"
     >
       <div>Velours</div>
       <div class="flex gap-4">

@@ -20,13 +20,13 @@
     <div
       class="sm:w-4/6 sm:h-4/6 rounded-xl bg-white flex flex-col justify-center items-center"
     >
-      <div class="flex flex-col sm:w-4/6 items-between justify-between">
+      <div class="flex flex-col w-screen p-6 sm:w-5/6 md:w-4/6 lg:w-3/6 xl:w-3/6 items-between justify-between">
         <div class="flex w-full">
           <h1 class="mx-auto">EDITAR ITEM - ID {{ edit.id }}</h1>
         </div>
 
         <form @submit="submitForm">
-          <div id="container-edit" class="w-full">
+          <div id="container-edit " class="w-full md:w-5/6">
             <div class="my-2">
               <span>Nome: </span
               ><input
@@ -71,7 +71,7 @@
               />
             </div>
           </div>
-          <div class="flex w-full items-center justify-between mt-4">
+          <div class="flex w-full items-center justify-between mt-4 ">
             <button
               type="submit"
               class="bg-green-400 rounded-md p-1 text-white font-bold"
@@ -83,7 +83,7 @@
               v-on:click="deleteItem"
               class="bg-red-800 rounded-md p-1 text-white font-bold"
             >
-              DELETAR PRODUTO
+              DELETAR
             </button>
             <button
               type="button"
