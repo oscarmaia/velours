@@ -67,9 +67,8 @@
 </template>
 
 <script>
+import axios from "axios";
 import { RouterLink } from "vue-router";
-import { addItem } from "../assets/repository";
-
 export default {
   data() {
     return {
@@ -80,9 +79,15 @@ export default {
   methods: {
     submitForm(e) {
       e.preventDefault();
-      this.newProduct;
       console.log(this.newProduct);
-      addItem(this.newProduct);
+      axios
+        .post("https://velours-api.onrender.com/products", this.newProduct)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
