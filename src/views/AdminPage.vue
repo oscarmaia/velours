@@ -98,8 +98,14 @@
     </div>
   </div>
   <div class="flex items-center justify-center">
-    <h1 class="text-center text-2xl font-bold my-4">ADMIN PAGE</h1>
-    <RouterLink id="add-product" to="/admin/add">ADICIONAR ITEM</RouterLink>
+    <div>
+      <h1 class="text-center text-2xl font-bold my-4">ADMIN PAGE</h1>
+      <RouterLink id="add-product" to="/admin/add"
+        ><h1 class="text-center text-2xl font-bold my-4 bg-green-200 rounded-lg p-2 hover:shadow-md hover:bg-green-600">
+          ADICIONAR ITEM
+        </h1></RouterLink
+      >
+    </div>
   </div>
   <ProductList
     @send-to-admin="handleInfoFromChild"
